@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package examen.entities;
+package TPI.entities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +56,7 @@ public class Categoria extends Base {
 
     @Override
     public String toString() {
-        return String.format("Categoria #%d | Nombre: %s | Descripcion: %s | Productos: %d",
+        return String.format("Categoria ID: #%d | Nombre: %s | Descripcion: %s | Productos: %d",
                 getId(), nombre, descripcion, productos.size());
     }
 }

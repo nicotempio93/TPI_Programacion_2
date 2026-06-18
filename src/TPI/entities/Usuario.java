@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package examen.entities;
+package TPI.entities;
 
-import examen.enums.Rol;
+import TPI.enums.Rol;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,7 +106,7 @@ public class Usuario extends Base {
 
     @Override
     public String toString() {
-        return String.format("USUARIO: %s %s | Mail: %s | Rol: %s",
-                nombre, apellido, mail, rol);
+        return String.format("USUARIO ID: %s | Nombre: %s %s | Mail: %s | Rol: %s",
+                getId(), nombre, apellido, mail, rol);
     }
 }

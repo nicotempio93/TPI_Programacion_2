@@ -2,11 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package examen.entities;
+package TPI.entities;
 
-import examen.enums.Estado;
-import examen.enums.FormaPago;
-import examen.interfaces.Calculable;
+import TPI.enums.Estado;
+import TPI.enums.FormaPago;
+import TPI.interfaces.Calculable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +118,7 @@ public class Pedido extends Base implements Calculable {
 
     @Override
     public String toString() {
-        return String.format("> Pedido #%d | Fecha: %s | Estado: %s | FormaPago: %s | Total: $%.2f",
+        return String.format("> Pedido ID: #%d | Fecha: %s | Estado: %s | FormaPago: %s | Total: $%.2f",
                 getId(), fecha, estado, formaPago, total);
     }
 }

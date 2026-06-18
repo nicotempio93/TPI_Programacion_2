@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package examen.entities;
+package TPI.entities;
 
 /**
  *
@@ -99,7 +99,7 @@ public class Producto extends Base {
 
     @Override
     public String toString() {
-        return String.format("Producto #%d | Nombre: %s | Precio: $%.2f | Descripcion: %s | Stock: %d | Disponible: %s | Categoria: %s",
+        return String.format("Producto ID: #%d | Nombre: %s | Precio: $%.2f | Descripcion: %s | Stock: %d | Disponible: %s | Categoria: %s",
                 getId(), nombre, precio, descripcion, stock, disponible ? "Sí" : "No", categoria.getNombre());
     }
 

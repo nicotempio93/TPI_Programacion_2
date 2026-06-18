@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package examen.exception;
+package TPI.exception;
 
 /**
  *
  * @author nicoyshansho
  */
-public class EntidadNoEncontradaException extends Exception {
-    public EntidadNoEncontradaException(String mensaje){
+public class StockInvalidoException extends Exception{
+    public StockInvalidoException(String mensaje){
         super(mensaje);
     }
 }

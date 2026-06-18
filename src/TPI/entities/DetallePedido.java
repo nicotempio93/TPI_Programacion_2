@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package examen.entities;
+package TPI.entities;
 
 /**
  *
@@ -55,7 +55,7 @@ public class DetallePedido extends Base {
 
     @Override
     public String toString() {
-        return String.format("- DetallePedido #%d: %s x %d => Subtotal: $%.2f\n",
+        return String.format("- DetallePedido ID: #%d: %s x %d => Subtotal: $%.2f\n",
                 getId(), producto.getNombre(), cantidad, subtotal);
     }
 

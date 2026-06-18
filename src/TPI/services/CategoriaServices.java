@@ -2,10 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package examen.services;
+package TPI.services;
 
-import examen.entities.Categoria;
-import examen.exception.EntidadNoEncontradaException;
+import TPI.entities.Categoria;
+import TPI.exception.EntidadNoEncontradaException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class CategoriaServices {
 
     private List<Categoria> categorias = new ArrayList<>();
 
-    public void Create(String nombre, String descripcion) throws EntidadNoEncontradaException {
+    public void crear(String nombre, String descripcion) throws EntidadNoEncontradaException {
         for (Categoria c : categorias) {
             if (c.getNombre().equalsIgnoreCase(nombre) && !c.isEliminado()) {
                 throw new EntidadNoEncontradaException("Ya existe una entidad con ese nombre.");
@@ -38,6 +38,15 @@ public class CategoriaServices {
         return activas;
     }
 
+    public Categoria buscarPorId(Long id) throws EntidadNoEncontradaException {
+        for (Categoria c : categorias) {
+            if (c.getId().equals(id) && !c.isEliminado()) {
+                return c;
+            }
+        }
+        throw new EntidadNoEncontradaException("No existe categoría con id " + id);
+    }
+
     public void actualizar(Long id, String nombre, String descripcion) throws EntidadNoEncontradaException {
         Categoria c = buscarPorId(id);
         c.setNombre(nombre);
@@ -49,15 +58,6 @@ public class CategoriaServices {
         Categoria c = buscarPorId(id);
         c.setEliminado(true);
         System.out.println("Categoría eliminada.");
-    }
-
-    public Categoria buscarPorId(Long id) throws EntidadNoEncontradaException {
-        for (Categoria c : categorias) {
-            if (c.getId().equals(id) && !c.isEliminado()) {
-                return c;
-            }
-        }
-        throw new EntidadNoEncontradaException("No existe categoría con id " + id);
     }
 
 }
