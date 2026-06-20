@@ -77,6 +77,11 @@ public class MenuProducto {
 
         System.out.println("Ingrese el nombre del nuevo producto: ");
         String nombre = sc.nextLine();
+        if (nombre.isBlank()){
+            System.out.println("El nombre no puede estar vacio.");
+            return;
+        }    
+        
 
         System.out.print("Ingrese la descripción del nuevo porducto: ");
         String descripcion = sc.nextLine();
