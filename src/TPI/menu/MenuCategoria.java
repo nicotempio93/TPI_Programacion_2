@@ -71,9 +71,16 @@ public class MenuCategoria {
     private void crear() {
         System.out.println("Ingrese el nombre: ");
         String nombre = sc.nextLine();
-
+        if (nombre.isBlank()) {
+            System.out.println("El nombre no puede estar vacio.");
+            return;
+        }
         System.out.print("Ingrese la descripción: ");
         String descripcion = sc.nextLine();
+        if (descripcion.isBlank()) {
+            System.out.println("La descipcion no puede estar vacia.");
+            return;
+        }
 
         try {
             service.crear(nombre, descripcion);
