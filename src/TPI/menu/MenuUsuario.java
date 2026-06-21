@@ -79,6 +79,10 @@ public class MenuUsuario {
 
         System.out.println("Ingrese el mail: ");
         String mail = sc.nextLine();
+        if (mail.isBlank()) {
+            System.out.println("El mail no puede estar vacio.");
+            return;
+        }
 
         System.out.print("Ingrese el celular: ");
         String celular = sc.nextLine();
@@ -179,6 +183,20 @@ public class MenuUsuario {
             usuarioId = Long.parseLong(sc.nextLine());
         } catch (NumberFormatException e) {
             System.out.println("ID inválido, ingresá un número.");
+            return;
+        }
+
+        try {
+            service.buscarPorId(usuarioId);
+        } catch (EntidadNoEncontradaException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+
+        System.out.print("¿Confirma la eliminación? (S/N): ");
+        String confirmacion = sc.nextLine();
+        if (!confirmacion.equalsIgnoreCase("S")) {
+            System.out.println("Operación cancelada.");
             return;
         }
 

@@ -82,11 +82,10 @@ public class MenuProducto {
             return;
         }    
         
-
         System.out.print("Ingrese la descripción del nuevo porducto: ");
         String descripcion = sc.nextLine();
 
-        System.out.print("Ingrese nomnbre de imagen del nuevo producto: ");
+        System.out.print("Ingrese nombre de imagen del nuevo producto: ");
         String imagen = sc.nextLine();
 
         System.out.print("Ingrese el precio del nuevo porducto: ");

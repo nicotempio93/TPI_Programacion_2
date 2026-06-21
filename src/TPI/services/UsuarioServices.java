@@ -51,6 +51,13 @@ public class UsuarioServices {
 
     public void actualizar(Long id, String nombre, String apellido, String mail, String celular, String contrasenia, Rol rol) throws EntidadNoEncontradaException {
         Usuario u = buscarPorId(id);
+
+        for (Usuario otro : usuarios) {
+            if (!otro.getId().equals(id) && otro.getMail().equalsIgnoreCase(mail) && !otro.isEliminado()) {
+                throw new EntidadNoEncontradaException("Ya existe otro usuario con ese mail.");
+            }
+        }
+
         u.setNombre(nombre);
         u.setApellido(apellido);
         u.setMail(mail);

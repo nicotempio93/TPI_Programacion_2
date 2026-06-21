@@ -86,9 +86,9 @@ public class MenuPedido {
             System.out.println("No hay usuarios registrados.");
             return;
         }
-            for (Usuario u : usuarios) {
-                System.out.println(u);
-            }
+        for (Usuario u : usuarios) {
+            System.out.println(u);
+        }
 
         System.out.println("Ingrese el id del cliente: ");
         Long usuarioId;
@@ -141,14 +141,8 @@ public class MenuPedido {
                 try {
                     productoId = Long.parseLong(sc.nextLine());
                 } catch (NumberFormatException e) {
-                    System.out.println("ID inválido, ingresá un número.");
-                    return;
-                }
-
-                try {
-                    productoServices.buscarPorId(productoId);
-                } catch (EntidadNoEncontradaException e) {
-                    System.out.println(e.getMessage());
+                    System.out.println("ID inválido. Cancelando creación del pedido.");
+                    service.eliminar(pedido.getId());
                     return;
                 }
 
@@ -157,11 +151,18 @@ public class MenuPedido {
                 try {
                     cantidad = Integer.parseInt(sc.nextLine());
                 } catch (NumberFormatException e) {
-                    System.out.println("Cantidad inválida, ingresá un número entero.");
+                    System.out.println("Cantidad inválida. Cancelando creación del pedido.");
+                    service.eliminar(pedido.getId());
                     return;
                 }
 
-                service.agregarDetalle(productoId, pedido, cantidad);
+                try {
+                    service.agregarDetalle(productoId, pedido, cantidad);
+                } catch (EntidadNoEncontradaException e) {
+                    System.out.println(e.getMessage() + " Cancelando creación del pedido.");
+                    service.eliminar(pedido.getId());
+                    return;
+                }
 
                 System.out.print("¿Agregar otro producto? (S/N): ");
                 seguir = sc.nextLine().equalsIgnoreCase("S");
@@ -172,7 +173,6 @@ public class MenuPedido {
         } catch (EntidadNoEncontradaException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     private void editar() {
@@ -246,6 +246,19 @@ public class MenuPedido {
             pedidoId = Long.parseLong(sc.nextLine());
         } catch (NumberFormatException e) {
             System.out.println("ID inválido, ingresá un número.");
+            return;
+        }
+
+        try {
+            service.buscarPorId(pedidoId);
+        } catch (EntidadNoEncontradaException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+
+        System.out.print("¿Confirma la eliminación? (S/N): ");
+        if (!sc.nextLine().equalsIgnoreCase("S")) {
+            System.out.println("Operación cancelada.");
             return;
         }
 

@@ -77,10 +77,6 @@ public class MenuCategoria {
         }
         System.out.print("Ingrese la descripción: ");
         String descripcion = sc.nextLine();
-        if (descripcion.isBlank()) {
-            System.out.println("La descipcion no puede estar vacia.");
-            return;
-        }
 
         try {
             service.crear(nombre, descripcion);
@@ -90,7 +86,7 @@ public class MenuCategoria {
     }
 
     private void editar() {
-        System.out.println("Ingrece el id de la categoria a modificar: ");
+        System.out.println("Ingrese el id de la categoria a modificar: ");
         Long categoriaId;
         try {
             categoriaId = Long.parseLong(sc.nextLine());
@@ -121,7 +117,7 @@ public class MenuCategoria {
     }
 
     private void eliminar() {
-        System.out.println("Ingrece el id de la categoria a eliminar: ");
+        System.out.println("Ingrese el id de la categoria a eliminar: ");
         Long categoriaId;
         try {
             categoriaId = Long.parseLong(sc.nextLine());
